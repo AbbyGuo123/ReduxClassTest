@@ -13,6 +13,11 @@ class Counter extends Component {
     onxcrement(a,this.props.index);
   }
 
+  timeOutIncrement=()=>{
+    const onIncrement=this.props.onIncrement;
+    setTimeout(()=>{onIncrement(this.props.index)},1000);
+  }
+
   
   render() {
     const { value, onIncrement, onDecrement ,index} = this.props;
@@ -31,6 +36,9 @@ class Counter extends Component {
           <button onClick={this.multiply}>
             *
           </button>
+          <button onClick={this.timeOutIncrement}>
+          Increment Async
+        </button>
         </p >
       </div>
     );

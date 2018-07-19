@@ -1,5 +1,6 @@
 export default (state =[0,0] , action) => {
     console.log(action.index)
+    
     switch (action.type){
         case 'INCREMENT':{
             const newState = [...state];
@@ -8,7 +9,7 @@ export default (state =[0,0] , action) => {
         }
         case 'DECREMENT':{
             const newState = [...state];
-            newState[action.index]++;
+            newState[action.index]--;
             return newState;
         }
         case 'XCREMENT':{
@@ -19,4 +20,6 @@ export default (state =[0,0] , action) => {
         default:
             return state 
     }
+    
+
 }

@@ -4,11 +4,13 @@ import { createStore } from 'redux'
 import {increment, decrement, xcrement} from '../actions'
 import Counter from './Counter';
 import counter from '../reducers'
+import CounterContainer from '../Container/CounterContainer';
 
 
 
 const store = createStore(counter)
 class CounterGroup extends Component {
+  
 
   constructor(props) {
     super(props);
@@ -16,14 +18,22 @@ class CounterGroup extends Component {
   }
 
   render() {
-    const { state, onIncrement, onDecrement ,onxcrement} = this.props
+    let counters = [];
+    const { value, onIncrement, onDecrement ,onxcrement} = this.props
+    for(let i=0;i<2;i++){
+      counters.push(<CounterContainer
+        index={i}
+        key = {i}
+        // state={state}
+        // onIncrement={onIncrement}
+        // onDecrement={onDecrement}
+        // onxcrement ={onxcrement}
+      />)
+    }
     return (
-      <Counter
-        state={state}
-        onIncrement={onIncrement}
-        onDecrement={onDecrement}
-        onxcrement ={onxcrement}
-      />
+      <div className='App'>
+      {counters}
+      </div>
     );
   }
 }

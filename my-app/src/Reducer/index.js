@@ -1,11 +1,21 @@
-export default (state = 0, action) => {
+export default (state =[0,0] , action) => {
+    console.log(action.index)
     switch (action.type){
-        case 'INCREMENT':
-            return state + 1;
-        case 'DECREMENT':
-            return state - 1;
-        case 'XCREMENT':
-            return state * action.multipler;
+        case 'INCREMENT':{
+            const newState = [...state];
+            newState[action.index]++;
+            return newState;
+        }
+        case 'DECREMENT':{
+            const newState = [...state];
+            newState[action.index]++;
+            return newState;
+        }
+        case 'XCREMENT':{
+            const newState = [...state];
+            newState[action.index] = newState[action.index]*action.multipler;
+            return newState;
+        }
         default:
             return state 
     }

@@ -1,40 +1,26 @@
-// import React, { Component } from 'react';
+import React, { Component } from 'react';
+import Counter from './components/Counter';
+import CounterGroup from './components/CounterGroup';
 
-// class App extends Component {
+class App extends Component {
 
-//   constructor(props) {
-//     super(props);
-//     this.inputText = React.createRef();
+  constructor(props) {
+    super(props);
 
-//   }
-//   multiply=()=>{
-//     const onxcrement = this.props.onxcrement;
-//     const a = this.inputText.current.value;
-//     onxcrement(a);
-//   }
+  }
 
   
-//   render() {
-//     const { state, onIncrement, onDecrement ,onxcrement} = this.props;
-//     return (
-//       <div className="App">
-//         <p>
-//           Clicked: {state} times
-//         {' '}
-//           <button onClick={onIncrement}>
-//             +
-//           </button>
-//           <button onClick={onDecrement}>
-//             -
-//           </button>
-//           <input type="text" defaultValue={0} ref={this.inputText}/>
-//           <button onClick={this.multiply}>
-//             *
-//           </button>
-//         </p >
-//       </div>
-//     );
-//   }
-// }
+  render() {
+    const { value, onIncrement, onDecrement ,onxcrement} = this.props;
+    return (
+        <CounterGroup
+        // state={state}
+        // onIncrement={onIncrement}
+        // onDecrement={onDecrement}
+        // onxcrement ={onxcrement}
+      />
+    );
+  }
+}
 
-// export default App;
+export default App;

@@ -10,21 +10,21 @@ class Counter extends Component {
   multiply=()=>{
     const onxcrement = this.props.onxcrement;
     const a = this.inputText.current.value;
-    onxcrement(a);
+    onxcrement(a,this.props.index);
   }
 
   
   render() {
-    const { state, onIncrement, onDecrement ,onxcrement} = this.props;
+    const { value, onIncrement, onDecrement ,index} = this.props;
     return (
       <div className="Counter">
         <p>
-          Clicked: {state} times
+          Clicked: {value} times
         {' '}
-          <button onClick={onIncrement}>
+          <button onClick={()=>onIncrement(index)}>
             +
           </button>
-          <button onClick={onDecrement}>
+          <button onClick={()=>onDecrement(index)}>
             -
           </button>
           <input type="text" defaultValue={0} ref={this.inputText}/>
